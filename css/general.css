@@ -1,0 +1,37 @@
+@import url('fonts.css');
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.top-img{
+	width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: relative;
+}
+
+.cc-container{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: white;
+	width: 100%;
+	text-align: center;
+}
+
+.button-main{
+	text-decoration: none;
+	color: white;
+	font-family: 'ExtraBold';
+	font-size: 5.3vw;
+	padding: 4.4vw 15vw;
+	background: linear-gradient(to bottom right, #e53935, #b71c1c);
+	border-radius: 100vw;
+	z-index: 12;
+	display: inline-block;
+	transform: translate(0,-50%);
+}
