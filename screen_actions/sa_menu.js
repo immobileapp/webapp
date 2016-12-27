@@ -27,15 +27,15 @@ mc.on("swipeleft tap", function (ev) {
 });
 
 function closeMenu() {
-	$('.menu').css('background', 'rgba(0,0,0,0)');
-	$('.menu #wrapper').css('marginLeft', '-80vw');
-	$('.menu .content').css('boxShadow', '5px 0 50px rgba(0,0,0,0)');
+	$('#wrapper').css('background', 'rgba(0,0,0,0)');
+	$('#wrapper').css('marginLeft', '-80vw');
+	$('#wrapper .content').css('boxShadow', '5px 0 50px rgba(0,0,0,0)');
 	menuIsVisible = false;
 }
 
 function openMenu() {
-	$('.menu').css('background', 'rgba(0,0,0,0.65)');
-	$('.menu #wrapper').css('marginLeft', 0);
-	$('.menu .content').css('boxShadow', '5px 0 50px rgba(0,0,0,0.65)');
+	$('#wrapper').css('background', 'rgba(0,0,0,0.65)');
+	$('#wrapper').css('marginLeft', 0);
+	$('#wrapper .content').css('boxShadow', '5px 0 50px rgba(0,0,0,0.65)');
 	menuIsVisible = true;
 }

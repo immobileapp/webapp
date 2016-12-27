@@ -12,62 +12,55 @@
 	height: 100vh;
 	z-index: 30;
 }
-.menu{
-	width: 100vw;
-	height: 100vh;
+
+#wrapper{
 	position: fixed;
-	top: 0;
-	left: 0;
-	background: rgba(0,0,0,0);
-	z-index: 20;
-	transition: all 0.5s ease-in-out;
-}
-.menu #wrapper{
 	width: 100vw;
 	margin-left: -80vw;
 	transition: all 0.5s ease-in-out;
+	z-index: 20;
 }
-.menu .content{
+#wrapper .content{
 	width: 80vw;
 	height: 100vh;
 	background: white;
 	box-shadow: 5px 0 50px rgba(0,0,0,0);
 	transition: all 0.5s ease-in-out;
 }
-.menu .top-img{
+#wrapper .top-img{
 	height: 23.7vh;
 	background-image: url('../footage/menu-bg.png');
 }
-.menu .container{
+#wrapper .container{
 	width: 80%;
 	margin: 0 auto;
 }
-.menu .avatar{
+#wrapper .avatar{
 	width: 17.4vw;
 	transform: translate(0, -50%);
 }
-.menu .stuff{
+#wrapper .stuff{
 	margin-top: -10vw;
 }
-.menu h3{
+#wrapper h3{
 	font-family: 'ExtraBold';
 	font-size: 6vw;
 	color: #212121;
 	padding-bottom: 3vw;
 }
-.menu li div{
+#wrapper li div{
 	display: block;
 	height: 1px;
 	background: #d3d3d3;
 	margin: 2vw 0;
 }
-.menu ul{
+#wrapper ul{
 	list-style: none;
 }
-.menu li{
+#wrapper li{
 	position: relative;
 }
-.menu a{
+#wrapper a{
 	text-decoration: none;
 	font-family: 'Bold';
 	font-size: 4vw;
@@ -75,7 +68,7 @@
 	display: block;
 	color: #d3d3d3;
 }
-.menu li::before{
+#wrapper li::before{
 	content:'';
 	position: absolute;
 	top: 2.6vw;
@@ -85,21 +78,21 @@
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
-.menu li:nth-child(2)::before{
+#wrapper li:nth-child(2)::before{
 	background-image: url('../footage/menu-home-icon.png');
 }
-.menu li:nth-child(3)::before{
+#wrapper li:nth-child(3)::before{
 	background-image: url('../footage/menu-car-icon.png');
 }
-.menu li:nth-child(4)::before{
+#wrapper li:nth-child(4)::before{
 	background-image: url('../footage/menu-history-icon.png');
 }
-.menu li:nth-child(5)::before{
+#wrapper li:nth-child(5)::before{
 	background-image: url('../footage/menu-config-icon.png');
 }
-.menu li:nth-child(7)::before{
+#wrapper li:nth-child(7)::before{
 	background-image: url('../footage/menu-user-icon.png');
 }
-	.menu li:nth-child(8)::before{
+#wrapper li:nth-child(8)::before{
 	background-image: url('../footage/menu-logout-icon.png');
 }

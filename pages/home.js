@@ -14,7 +14,7 @@ export default class Home extends React.Component{
 					</div>
 				</div>
 				<div className="container">
-					<Link className="button-main" to="">ESTACIONAR</Link>
+					<Link className="button-main red" to="/parked">ESTACIONAR</Link>
 					<div className="content">
 						<p><b>Olá, senhor(a) <strong>Lewis.</strong></b><br/>Neste <b>mês</b>, você ja usou</p>
 						<div className="infs">

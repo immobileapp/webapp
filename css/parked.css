@@ -1,0 +1,12 @@
+.parked{
+	width: 100vw;
+	height: 100vh;
+	box-sizing: border-box;
+	position: relative;
+	background: linear-gradient(to bottom right, #e53935, #b71c1c);
+}
+
+.parked span{
+	font-family: 'ExtraBold';
+	font-size: 16.3vw;
+}

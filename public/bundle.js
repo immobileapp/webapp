@@ -70,6 +70,10 @@
 
 	var _home2 = _interopRequireDefault(_home);
 
+	var _parked = __webpack_require__(239);
+
+	var _parked2 = _interopRequireDefault(_parked);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	(0, _reactDom.render)(_react2.default.createElement(
@@ -79,7 +83,8 @@
 			_reactRouter.Route,
 			{ path: '/', component: _menu2.default },
 			_react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/home', component: _home2.default })
+			_react2.default.createElement(_reactRouter.Route, { path: '/home', component: _home2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/parked', component: _parked2.default })
 		)
 	), document.getElementById('main'));
 
@@ -26445,98 +26450,94 @@
 					_react2.default.createElement('img', { className: 'menu-icon', src: '../footage/menu-icon.png' }),
 					_react2.default.createElement(
 						'div',
-						{ className: 'menu' },
+						{ id: 'wrapper' },
 						_react2.default.createElement(
 							'div',
-							{ id: 'wrapper' },
+							{ className: 'content' },
+							_react2.default.createElement('div', { className: 'top-img' }),
 							_react2.default.createElement(
 								'div',
-								{ className: 'content' },
-								_react2.default.createElement('div', { className: 'top-img' }),
+								{ className: 'container' },
+								_react2.default.createElement('img', { className: 'avatar', src: '../footage/menu-avatar.png' }),
 								_react2.default.createElement(
 									'div',
-									{ className: 'container' },
-									_react2.default.createElement('img', { className: 'avatar', src: '../footage/menu-avatar.png' }),
+									{ className: 'stuff' },
 									_react2.default.createElement(
-										'div',
-										{ className: 'stuff' },
+										'h3',
+										null,
+										'Lewis Horton'
+									),
+									_react2.default.createElement(
+										'ul',
+										null,
 										_react2.default.createElement(
-											'h3',
+											'li',
 											null,
-											'Lewis Horton'
+											_react2.default.createElement('div', null)
 										),
 										_react2.default.createElement(
-											'ul',
+											'li',
 											null,
 											_react2.default.createElement(
-												'li',
-												null,
-												_react2.default.createElement('div', null)
-											),
-											_react2.default.createElement(
-												'li',
-												null,
-												_react2.default.createElement(
-													_reactRouter.Link,
-													{ to: '' },
-													'Inicio'
-												)
-											),
-											_react2.default.createElement(
-												'li',
-												null,
-												_react2.default.createElement(
-													_reactRouter.Link,
-													{ to: '' },
-													'Meus Ve\xEDculos'
-												)
-											),
-											_react2.default.createElement(
-												'li',
-												null,
-												_react2.default.createElement(
-													_reactRouter.Link,
-													{ to: '' },
-													'Hist\xF3rico'
-												)
-											),
-											_react2.default.createElement(
-												'li',
-												null,
-												_react2.default.createElement(
-													_reactRouter.Link,
-													{ to: '' },
-													'Configura\xE7\xF5es'
-												)
-											),
-											_react2.default.createElement(
-												'li',
-												null,
-												_react2.default.createElement('div', null)
-											),
-											_react2.default.createElement(
-												'li',
-												null,
-												_react2.default.createElement(
-													_reactRouter.Link,
-													{ to: '' },
-													'Meu Perfil'
-												)
-											),
-											_react2.default.createElement(
-												'li',
-												null,
-												_react2.default.createElement(
-													_reactRouter.Link,
-													{ to: '' },
-													'Logout'
-												)
-											),
-											_react2.default.createElement(
-												'li',
-												null,
-												_react2.default.createElement('div', null)
+												_reactRouter.Link,
+												{ to: '' },
+												'Inicio'
 											)
+										),
+										_react2.default.createElement(
+											'li',
+											null,
+											_react2.default.createElement(
+												_reactRouter.Link,
+												{ to: '' },
+												'Meus Ve\xEDculos'
+											)
+										),
+										_react2.default.createElement(
+											'li',
+											null,
+											_react2.default.createElement(
+												_reactRouter.Link,
+												{ to: '' },
+												'Hist\xF3rico'
+											)
+										),
+										_react2.default.createElement(
+											'li',
+											null,
+											_react2.default.createElement(
+												_reactRouter.Link,
+												{ to: '' },
+												'Configura\xE7\xF5es'
+											)
+										),
+										_react2.default.createElement(
+											'li',
+											null,
+											_react2.default.createElement('div', null)
+										),
+										_react2.default.createElement(
+											'li',
+											null,
+											_react2.default.createElement(
+												_reactRouter.Link,
+												{ to: '' },
+												'Meu Perfil'
+											)
+										),
+										_react2.default.createElement(
+											'li',
+											null,
+											_react2.default.createElement(
+												_reactRouter.Link,
+												{ to: '' },
+												'Logout'
+											)
+										),
+										_react2.default.createElement(
+											'li',
+											null,
+											_react2.default.createElement('div', null)
 										)
 									)
 								)
@@ -26617,7 +26618,7 @@
 						{ className: 'container' },
 						_react2.default.createElement(
 							_reactRouter.Link,
-							{ className: 'button-main', to: '' },
+							{ className: 'button-main red', to: '/parked' },
 							'ESTACIONAR'
 						),
 						_react2.default.createElement(
@@ -26722,16 +26723,16 @@
 	});
 
 	function closeMenu() {
-		(0, _jquery2.default)('.menu').css('background', 'rgba(0,0,0,0)');
-		(0, _jquery2.default)('.menu #wrapper').css('marginLeft', '-80vw');
-		(0, _jquery2.default)('.menu .content').css('boxShadow', '5px 0 50px rgba(0,0,0,0)');
+		(0, _jquery2.default)('#wrapper').css('background', 'rgba(0,0,0,0)');
+		(0, _jquery2.default)('#wrapper').css('marginLeft', '-80vw');
+		(0, _jquery2.default)('#wrapper .content').css('boxShadow', '5px 0 50px rgba(0,0,0,0)');
 		menuIsVisible = false;
 	}
 
 	function openMenu() {
-		(0, _jquery2.default)('.menu').css('background', 'rgba(0,0,0,0.65)');
-		(0, _jquery2.default)('.menu #wrapper').css('marginLeft', 0);
-		(0, _jquery2.default)('.menu .content').css('boxShadow', '5px 0 50px rgba(0,0,0,0.65)');
+		(0, _jquery2.default)('#wrapper').css('background', 'rgba(0,0,0,0.65)');
+		(0, _jquery2.default)('#wrapper').css('marginLeft', 0);
+		(0, _jquery2.default)('#wrapper .content').css('boxShadow', '5px 0 50px rgba(0,0,0,0.65)');
 		menuIsVisible = true;
 	}
 
@@ -39598,6 +39599,70 @@
 	        window[exportName] = Hammer;
 	    }
 	})(window, document, 'Hammer');
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(179);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Parked = function (_React$Component) {
+		_inherits(Parked, _React$Component);
+
+		function Parked() {
+			_classCallCheck(this, Parked);
+
+			return _possibleConstructorReturn(this, (Parked.__proto__ || Object.getPrototypeOf(Parked)).apply(this, arguments));
+		}
+
+		_createClass(Parked, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					{ className: 'parked' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'cc-container' },
+						_react2.default.createElement(
+							'span',
+							null,
+							'00:00:00'
+						),
+						_react2.default.createElement(
+							_reactRouter.Link,
+							{ to: '/home', className: 'button-main white' },
+							'DEIXAR VAGA'
+						)
+					)
+				);
+			}
+		}]);
+
+		return Parked;
+	}(_react2.default.Component);
+
+	exports.default = Parked;
 
 /***/ }
 /******/ ]);
