@@ -1,0 +1,12 @@
+header{
+	width: 100vw;
+	box-sizing: border-box;
+	padding: 4.75% 7.5%;
+	background: linear-gradient(to bottom right, #e53935, #b71c1c);
+}
+
+header h1{
+	font-family: 'ExtraBold';
+	font-size: 1em;
+	color: white;
+}

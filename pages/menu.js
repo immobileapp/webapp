@@ -15,8 +15,8 @@ export default class Menu extends React.Component{
 								<h3>Lewis Horton</h3>
 								<ul>
 									<li><div/></li>
-									<li><Link to="">Inicio</Link></li>
-									<li><Link to="">Meus Veículos</Link></li>
+									<li><Link to="/home">Inicio</Link></li>
+									<li><Link to="/myCars">Meus Veículos</Link></li>
 									<li><Link to="">Histórico</Link></li>
 									<li><Link to="">Configurações</Link></li>
 									<li><div/></li>

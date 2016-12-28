@@ -23,6 +23,11 @@
 	text-align: center;
 }
 
+.container{
+	width: 85%;
+	margin: 0 auto;
+}
+
 .button-main{
 	text-decoration: none;
 	font-family: 'ExtraBold';

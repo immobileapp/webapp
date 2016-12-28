@@ -1,0 +1,51 @@
+.myCars ul{
+	list-style: none;
+}
+.myCars li:nth-child(1){
+	font-family: 'SemiBoldItalic';
+	font-size: 6vw;
+	border-bottom: 1px dashed #d3d3d3;
+}
+.myCars li:nth-child(n+2){
+	display: block;
+	padding: 5vw 0;
+	border-bottom: 1px solid #d3d3d3;
+}
+.myCars a{
+	text-decoration: none;
+	color: #d3d3d3;
+	padding: 7vw 0;
+	display: block;
+}
+
+.myCars .inf{
+	display: inline-block;
+}
+.myCars h3{
+	font-family: 'ExtraBold';
+	font-size: 6.2vw;
+	color: #212121;
+	display: inline-block;
+	line-height: 1em;
+	margin-top: 1vw;
+}
+.myCars h4{
+	font-family: 'Italic';
+	font-size: 4vw;
+	color: #d3d3d3;
+	display: inline-block;
+}
+
+.myCars .icons{
+	display: inline-block;
+	float: right;
+}
+.myCars .icons a{
+	padding: 0 5vw;
+	margin-top: 5vw;
+	transform: translate(0, -25%);
+	display: inline-block;
+}
+.myCars .icons img{
+	width: 3.65vw;
+}

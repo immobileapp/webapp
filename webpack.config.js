@@ -8,6 +8,7 @@ module.exports = {
   ],
   resolve:{
     root:[ 
+      path.resolve('./components'),
       path.resolve('./pages'),
       path.resolve('./entries')
     ]

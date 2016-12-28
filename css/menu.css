@@ -20,6 +20,10 @@
 	transition: all 0.5s ease-in-out;
 	z-index: 20;
 }
+#wrapper .container{
+	width: 80%;
+	margin: 0 auto;
+}
 #wrapper .content{
 	width: 80vw;
 	height: 100vh;
@@ -31,10 +35,7 @@
 	height: 23.7vh;
 	background-image: url('../footage/menu-bg.png');
 }
-#wrapper .container{
-	width: 80%;
-	margin: 0 auto;
-}
+
 #wrapper .avatar{
 	width: 17.4vw;
 	transform: translate(0, -50%);
