@@ -1,8 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router';
 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 export default class Menu extends React.Component{
 	render(){
+
+		var path = this.props.location.pathname;
+    	var segment = path.split('/')[1] || 'root';
+
 		return(
 			<div>
 				<img className="menu-icon" src="../footage/menu-icon.png"/>
@@ -28,7 +34,14 @@ export default class Menu extends React.Component{
 						</div>
 					</div>
 				</div>
-				{this.props.children}
+				<ReactCSSTransitionGroup
+					component="div"
+					transitionName="main"
+					transitionEnterTimeout={500}
+					transitionLeaveTimeout={500}
+				>
+					{React.cloneElement(this.props.children, {key: segment})}
+				</ReactCSSTransitionGroup>
 			</div>
 		);
 	}

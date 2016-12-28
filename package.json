@@ -13,6 +13,7 @@
     "jquery": "^3.1.1",
     "jquery-mobile": "^1.4.1",
     "react": "^15.4.1",
+    "react-addons-css-transition-group": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-router": "^3.0.0"
   },
