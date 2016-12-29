@@ -68,11 +68,11 @@
 }
 
 /*Active*/
-.active-inf{
+.history .active-inf{
 	position: relative;
 	color: #e53935;
 }
-.active-inf::before{
+.history .active-inf::before{
 	content: '';
 	position: absolute;
 	left: 2.77vw;
@@ -81,14 +81,14 @@
 	height: 100%;
 	background: linear-gradient(to bottom, #e53935, #d3d3d3);
 }
-.active-inf .inf::before{
+.history .active-inf .inf::before{
 	content: '';
 	background: transparent;
 }
-.active-inf span:nth-child(2){
+.history .active-inf span:nth-child(2){
 	display: none;
 }
-.active-inf h5::before{
+.history .active-inf h5::before{
 	content: '';
 	background: #e53935;
 }
