@@ -28654,7 +28654,7 @@
 											null,
 											_react2.default.createElement(
 												_reactRouter.Link,
-												{ to: '' },
+												{ to: '/history' },
 												'Hist\xF3rico'
 											)
 										),
@@ -29099,6 +29099,14 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _jquery = __webpack_require__(254);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _header = __webpack_require__(251);
+
+	var _header2 = _interopRequireDefault(_header);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29110,10 +29118,51 @@
 	var History = function (_React$Component) {
 		_inherits(History, _React$Component);
 
-		function History() {
+		function History(state) {
 			_classCallCheck(this, History);
 
-			return _possibleConstructorReturn(this, (History.__proto__ || Object.getPrototypeOf(History)).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, (History.__proto__ || Object.getPrototypeOf(History)).call(this, state));
+
+			_this.state = {
+				history: [{
+					id: 0,
+					stopped: "1h 30min",
+					time: "3h atrás",
+					car: "Ford Ka",
+					active: 1
+				}, {
+					id: 1,
+					stopped: "1h 30min",
+					time: "3h atrás",
+					car: "Ford Ka",
+					active: 0
+				}, {
+					id: 2,
+					stopped: "1h 30min",
+					time: "3h atrás",
+					car: "Ford Ka",
+					active: 0
+				}, {
+					id: 3,
+					stopped: "1h 30min",
+					time: "3h atrás",
+					car: "Ford Ka",
+					active: 0
+				}, {
+					id: 4,
+					stopped: "1h 30min",
+					time: "3h atrás",
+					car: "Ford Ka",
+					active: 0
+				}, {
+					id: 5,
+					stopped: "1h 30min",
+					time: "3h atrás",
+					car: "Ford Ka",
+					active: 0
+				}]
+			};
+			return _this;
 		}
 
 		_createClass(History, [{
@@ -29121,8 +29170,41 @@
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
-					null,
-					'Hist\xF3rico'
+					{ className: 'history' },
+					_react2.default.createElement(_header2.default, { page: 'Hist\xF3rico' }),
+					_react2.default.createElement(
+						'div',
+						{ className: 'container' },
+						_react2.default.createElement(
+							'ul',
+							null,
+							this.state.history.map(function (history) {
+								return _react2.default.createElement(
+									'li',
+									{ key: history.id },
+									_react2.default.createElement(
+										'div',
+										{ className: 'inf' },
+										_react2.default.createElement(
+											'span',
+											null,
+											history.stopped
+										),
+										_react2.default.createElement(
+											'span',
+											null,
+											history.time
+										)
+									),
+									_react2.default.createElement(
+										'h5',
+										null,
+										history.car
+									)
+								);
+							})
+						)
+					)
 				);
 			}
 		}]);

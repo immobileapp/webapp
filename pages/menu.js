@@ -23,7 +23,7 @@ export default class Menu extends React.Component{
 									<li><div/></li>
 									<li><Link to="/home">Inicio</Link></li>
 									<li><Link to="/myCars">Meus Veículos</Link></li>
-									<li><Link to="">Histórico</Link></li>
+									<li><Link to="/history">Histórico</Link></li>
 									<li><Link to="">Configurações</Link></li>
 									<li><div/></li>
 									<li><Link to="">Meu Perfil</Link></li>
