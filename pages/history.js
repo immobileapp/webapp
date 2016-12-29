@@ -55,23 +55,46 @@ export default class History extends React.Component{
 		}
 	}
 
+	getActive(){
+		var posit;
+
+		this.state.history.map(function (history) {
+			if(history.active == 1){
+				console.log('osdgjs');
+				posit = history.id;
+			}
+		});
+		console.log(posit);
+		return posit + 1;
+	}
+
+	componentDidMount(){
+		var posit = this.getActive();
+		var item = $('ul li:nth-child('+posit+')');
+		
+		$(item).addClass('active-inf');
+	}
+
 	render(){
+
+		var list = this.state.history.map(function (history) {
+			return(
+				<li key={history.id}>
+					<div className="inf">
+						<span>{history.stopped}</span>
+						<span>{history.time}</span>										
+					</div>
+					<h5>{history.car}</h5>
+				</li>
+			)
+		});
+
 		return(
 			<div className="history">
 				<Header page="Histórico"/>
 				<div className="container">
 					<ul>
-						{
-							this.state.history.map(history => (
-								<li key={history.id}>
-									<div className="inf">
-										<span>{history.stopped}</span>
-										<span>{history.time}</span>										
-									</div>
-									<h5>{history.car}</h5>
-								</li>
-							))
-						}
+						{list}
 					</ul>
 				</div>
 			</div>

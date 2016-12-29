@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(253);
+	module.exports = __webpack_require__(254);
 
 
 /***/ },
@@ -29099,7 +29099,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _jquery = __webpack_require__(254);
+	var _jquery = __webpack_require__(253);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -29166,8 +29166,57 @@
 		}
 
 		_createClass(History, [{
+			key: 'getActive',
+			value: function getActive() {
+				var posit;
+
+				this.state.history.map(function (history) {
+					if (history.active == 1) {
+						console.log('osdgjs');
+						posit = history.id;
+					}
+				});
+				console.log(posit);
+				return posit + 1;
+			}
+		}, {
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				var posit = this.getActive();
+				var item = (0, _jquery2.default)('ul li:nth-child(' + posit + ')');
+
+				(0, _jquery2.default)(item).addClass('active-inf');
+			}
+		}, {
 			key: 'render',
 			value: function render() {
+
+				var list = this.state.history.map(function (history) {
+					return _react2.default.createElement(
+						'li',
+						{ key: history.id },
+						_react2.default.createElement(
+							'div',
+							{ className: 'inf' },
+							_react2.default.createElement(
+								'span',
+								null,
+								history.stopped
+							),
+							_react2.default.createElement(
+								'span',
+								null,
+								history.time
+							)
+						),
+						_react2.default.createElement(
+							'h5',
+							null,
+							history.car
+						)
+					);
+				});
+
 				return _react2.default.createElement(
 					'div',
 					{ className: 'history' },
@@ -29178,31 +29227,7 @@
 						_react2.default.createElement(
 							'ul',
 							null,
-							this.state.history.map(function (history) {
-								return _react2.default.createElement(
-									'li',
-									{ key: history.id },
-									_react2.default.createElement(
-										'div',
-										{ className: 'inf' },
-										_react2.default.createElement(
-											'span',
-											null,
-											history.stopped
-										),
-										_react2.default.createElement(
-											'span',
-											null,
-											history.time
-										)
-									),
-									_react2.default.createElement(
-										'h5',
-										null,
-										history.car
-									)
-								);
-							})
+							list
 						)
 					)
 				);
@@ -29216,61 +29241,6 @@
 
 /***/ },
 /* 253 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _jquery = __webpack_require__(254);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _hammer = __webpack_require__(255);
-
-	var _hammer2 = _interopRequireDefault(_hammer);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var menuIsVisible = false;
-
-	(0, _jquery2.default)('.menu-icon').click(function () {
-		if (menuIsVisible) {
-			closeMenu();
-		} else {
-			openMenu();
-		}
-	});
-
-	var wrapper = document.getElementById('wrapper');
-
-	var mc = new _hammer2.default(wrapper);
-	mc.get('swipe').set({ direction: _hammer2.default.DIRECTION_HORIZONTAL });
-
-	//Open on Swipe
-	mc.on("swiperight", function (ev) {
-		openMenu();
-	});
-
-	//Close on Swipe
-	mc.on("swipeleft tap", function (ev) {
-		closeMenu();
-	});
-
-	function closeMenu() {
-		(0, _jquery2.default)('#wrapper').css('background', 'rgba(0,0,0,0)');
-		(0, _jquery2.default)('#wrapper').css('marginLeft', '-80vw');
-		(0, _jquery2.default)('#wrapper .content').css('boxShadow', '5px 0 50px rgba(0,0,0,0)');
-		menuIsVisible = false;
-	}
-
-	function openMenu() {
-		(0, _jquery2.default)('#wrapper').css('background', 'rgba(0,0,0,0.65)');
-		(0, _jquery2.default)('#wrapper').css('marginLeft', 0);
-		(0, _jquery2.default)('#wrapper .content').css('boxShadow', '5px 0 50px rgba(0,0,0,0.65)');
-		menuIsVisible = true;
-	}
-
-/***/ },
-/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -39494,6 +39464,61 @@
 	return jQuery;
 	} );
 
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _jquery = __webpack_require__(253);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _hammer = __webpack_require__(255);
+
+	var _hammer2 = _interopRequireDefault(_hammer);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var menuIsVisible = false;
+
+	(0, _jquery2.default)('.menu-icon').click(function () {
+		if (menuIsVisible) {
+			closeMenu();
+		} else {
+			openMenu();
+		}
+	});
+
+	var wrapper = document.getElementById('wrapper');
+
+	var mc = new _hammer2.default(wrapper);
+	mc.get('swipe').set({ direction: _hammer2.default.DIRECTION_HORIZONTAL });
+
+	//Open on Swipe
+	mc.on("swiperight", function (ev) {
+		openMenu();
+	});
+
+	//Close on Swipe
+	mc.on("swipeleft tap", function (ev) {
+		closeMenu();
+	});
+
+	function closeMenu() {
+		(0, _jquery2.default)('#wrapper').css('background', 'rgba(0,0,0,0)');
+		(0, _jquery2.default)('#wrapper').css('marginLeft', '-80vw');
+		(0, _jquery2.default)('#wrapper .content').css('boxShadow', '5px 0 50px rgba(0,0,0,0)');
+		menuIsVisible = false;
+	}
+
+	function openMenu() {
+		(0, _jquery2.default)('#wrapper').css('background', 'rgba(0,0,0,0.65)');
+		(0, _jquery2.default)('#wrapper').css('marginLeft', 0);
+		(0, _jquery2.default)('#wrapper .content').css('boxShadow', '5px 0 50px rgba(0,0,0,0.65)');
+		menuIsVisible = true;
+	}
 
 /***/ },
 /* 255 */

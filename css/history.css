@@ -66,3 +66,29 @@
 	background: #d3d3d3;
 	border-radius: 5vw; 
 }
+
+/*Active*/
+.active-inf{
+	position: relative;
+	color: #e53935;
+}
+.active-inf::before{
+	content: '';
+	position: absolute;
+	left: 2.77vw;
+	top: 55%;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(to bottom, #e53935, #d3d3d3);
+}
+.active-inf .inf::before{
+	content: '';
+	background: transparent;
+}
+.active-inf span:nth-child(2){
+	display: none;
+}
+.active-inf h5::before{
+	content: '';
+	background: #e53935;
+}
