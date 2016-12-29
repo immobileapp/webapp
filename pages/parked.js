@@ -6,7 +6,7 @@ export default class Parked extends React.Component{
 		return(
 			<div className="parked">
 				<div className="cc-container">
-					<span>00:00:00</span>
+					<h6>00:00:00</h6>
 					<Link to="/home" className="button-main white">DEIXAR VAGA</Link>
 				</div>
 			</div>

@@ -28891,7 +28891,7 @@
 						'div',
 						{ className: 'cc-container' },
 						_react2.default.createElement(
-							'span',
+							'h6',
 							null,
 							'00:00:00'
 						),
