@@ -10,7 +10,8 @@ module.exports = {
     root:[ 
       path.resolve('./components'),
       path.resolve('./pages'),
-      path.resolve('./entries')
+      path.resolve('./entries'),
+      path.resolve('./data')
     ]
   },
   output: { path: __dirname, filename: './public/bundle.js' },

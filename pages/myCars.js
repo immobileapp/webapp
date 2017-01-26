@@ -2,36 +2,18 @@ import React from 'react';
 import {Link} from 'react-router';
 
 import Header from 'header';
+import cars from 'cars';
 
 export default class MyCars extends React.Component{
-	constructor(state, context){
-		super(state, context);
-
-		this.state = {
-			cars: [
-				{
-					id: 1,
-					name: 'Ford Ka',
-					plaque: 'AAK-3297'
-				},
-				{
-					id: 2,
-					name: 'Honda PCX',
-					plaque: 'AXJ-7654'
-				}
-			]
-		}
-	}
-
 	render(){
 		return(
 			<div className="myCars">
 				<Header page="Meus Veículos"/>
 				<div className="container">
 					<ul>
-						<li><Link to="">+ Novo Veículo</Link></li>
+						<li><Link to={"/myCars/NewCar"}>+ Novo Veículo</Link></li>
 						{
-							this.state.cars.map(car => (
+							cars.map(car => (
 								<li key={car.id}>
 									<div className="inf">
 										<h3>{car.name}</h3><br/>
@@ -46,6 +28,7 @@ export default class MyCars extends React.Component{
 						}
 					</ul>
 				</div>
+				{this.props.children}
 			</div>
 		);
 	}

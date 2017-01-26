@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(254);
+	module.exports = __webpack_require__(258);
 
 
 /***/ },
@@ -82,9 +82,13 @@
 
 	var _myCars2 = _interopRequireDefault(_myCars);
 
-	var _history = __webpack_require__(252);
+	var _history = __webpack_require__(253);
 
 	var _history2 = _interopRequireDefault(_history);
+
+	var _modal = __webpack_require__(255);
+
+	var _modal2 = _interopRequireDefault(_modal);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -95,10 +99,14 @@
 			_reactRouter.Route,
 			{ path: '/', component: _menu2.default },
 			_react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/home', component: _home2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/parked', component: _parked2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/myCars', component: _myCars2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/history', component: _history2.default })
+			_react2.default.createElement(_reactRouter.Route, { path: 'home', component: _home2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: 'parked', component: _parked2.default }),
+			_react2.default.createElement(
+				_reactRouter.Route,
+				{ path: 'myCars', component: _myCars2.default },
+				_react2.default.createElement(_reactRouter.Route, { path: '/myCars/:name', component: _modal2.default })
+			),
+			_react2.default.createElement(_reactRouter.Route, { path: 'history', component: _history2.default })
 		)
 	), document.getElementById('main'));
 
@@ -28932,6 +28940,10 @@
 
 	var _header2 = _interopRequireDefault(_header);
 
+	var _cars = __webpack_require__(252);
+
+	var _cars2 = _interopRequireDefault(_cars);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28943,23 +28955,10 @@
 	var MyCars = function (_React$Component) {
 		_inherits(MyCars, _React$Component);
 
-		function MyCars(state, context) {
+		function MyCars() {
 			_classCallCheck(this, MyCars);
 
-			var _this = _possibleConstructorReturn(this, (MyCars.__proto__ || Object.getPrototypeOf(MyCars)).call(this, state, context));
-
-			_this.state = {
-				cars: [{
-					id: 1,
-					name: 'Ford Ka',
-					plaque: 'AAK-3297'
-				}, {
-					id: 2,
-					name: 'Honda PCX',
-					plaque: 'AXJ-7654'
-				}]
-			};
-			return _this;
+			return _possibleConstructorReturn(this, (MyCars.__proto__ || Object.getPrototypeOf(MyCars)).apply(this, arguments));
 		}
 
 		_createClass(MyCars, [{
@@ -28980,11 +28979,11 @@
 								null,
 								_react2.default.createElement(
 									_reactRouter.Link,
-									{ to: '' },
+									{ to: "/myCars/NewCar" },
 									'+ Novo Ve\xEDculo'
 								)
 							),
-							this.state.cars.map(function (car) {
+							_cars2.default.map(function (car) {
 								return _react2.default.createElement(
 									'li',
 									{ key: car.id },
@@ -29020,7 +29019,8 @@
 								);
 							})
 						)
-					)
+					),
+					this.props.children
 				);
 			}
 		}]);
@@ -29085,6 +29085,27 @@
 
 /***/ },
 /* 252 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	var cars = [{
+		id: 1,
+		name: 'Ford Ka',
+		plaque: 'AAK-3297'
+	}, {
+		id: 2,
+		name: 'Honda PCX',
+		plaque: 'AXJ-7654'
+	}];
+
+	exports.default = cars;
+
+/***/ },
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29099,7 +29120,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _jquery = __webpack_require__(253);
+	var _jquery = __webpack_require__(254);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -29240,7 +29261,7 @@
 	exports.default = History;
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -39466,16 +39487,145 @@
 
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _jquery = __webpack_require__(253);
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _newCar = __webpack_require__(256);
+
+	var _newCar2 = _interopRequireDefault(_newCar);
+
+	var _modalTypes = __webpack_require__(260);
+
+	var _modalTypes2 = _interopRequireDefault(_modalTypes);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Modal = function (_React$Component) {
+		_inherits(Modal, _React$Component);
+
+		function Modal() {
+			_classCallCheck(this, Modal);
+
+			return _possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).apply(this, arguments));
+		}
+
+		_createClass(Modal, [{
+			key: 'render',
+
+			// constructor(context, props){
+			// 	super(context, props);
+
+			// 	this.state = {
+			// 		components: {
+			// 			NewCar: NewCar
+			// 		}
+			// 	}
+			// }
+
+			value: function render() {
+
+				var Component = _modalTypes2.default[this.props.params.name];
+
+				return _react2.default.createElement(
+					'div',
+					{ className: 'modal' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'container' },
+						_react2.default.createElement(Component, null)
+					)
+				);
+			}
+		}]);
+
+		return Modal;
+	}(_react2.default.Component);
+
+	exports.default = Modal;
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var NewCar = function (_React$Component) {
+		_inherits(NewCar, _React$Component);
+
+		function NewCar() {
+			_classCallCheck(this, NewCar);
+
+			return _possibleConstructorReturn(this, (NewCar.__proto__ || Object.getPrototypeOf(NewCar)).apply(this, arguments));
+		}
+
+		_createClass(NewCar, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'span',
+						null,
+						'Conteudo novo Carro modal'
+					)
+				);
+			}
+		}]);
+
+		return NewCar;
+	}(_react2.default.Component);
+
+	exports.default = NewCar;
+
+/***/ },
+/* 257 */,
+/* 258 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _jquery = __webpack_require__(254);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _hammer = __webpack_require__(255);
+	var _hammer = __webpack_require__(259);
 
 	var _hammer2 = _interopRequireDefault(_hammer);
 
@@ -39521,7 +39671,7 @@
 	}
 
 /***/ },
-/* 255 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -42157,6 +42307,28 @@
 	        window[exportName] = Hammer;
 	    }
 	})(window, document, 'Hammer');
+
+/***/ },
+/* 260 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _newCar = __webpack_require__(256);
+
+	var _newCar2 = _interopRequireDefault(_newCar);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var components = {
+		NewCar: _newCar2.default
+	};
+
+	exports.default = components;
 
 /***/ }
 /******/ ]);
