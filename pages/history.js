@@ -2,69 +2,19 @@ import React from 'react';
 import $ from 'jquery';
 
 import Header from 'header';
+import stops from 'stops';
 
 export default class History extends React.Component{
-	constructor(state){
-		super(state);
-
-		this.state = {
-			history: [
-				{
-					id: 0,
-					stopped: "1h 30min",
-					time: "3h atrás",
-					car: "Ford Ka",
-					active: 1
-				},
-				{
-					id: 1,
-					stopped: "1h 30min",
-					time: "3h atrás",
-					car: "Ford Ka",
-					active: 0
-				},
-				{
-					id: 2,
-					stopped: "1h 30min",
-					time: "3h atrás",
-					car: "Ford Ka",
-					active: 0
-				},
-				{
-					id: 3,
-					stopped: "1h 30min",
-					time: "3h atrás",
-					car: "Ford Ka",
-					active: 0
-				},
-				{
-					id: 4,
-					stopped: "1h 30min",
-					time: "3h atrás",
-					car: "Ford Ka",
-					active: 0
-				},
-				{
-					id: 5,
-					stopped: "1h 30min",
-					time: "3h atrás",
-					car: "Ford Ka",
-					active: 0
-				}
-			]
-		}
-	}
 
 	getActive(){
 		var posit;
 
-		this.state.history.map(function (history) {
-			if(history.active == 1){
-				console.log('osdgjs');
-				posit = history.id;
+		stops.map(function (stops) {
+			if(stops.active == 1){
+				posit = stops.id;
 			}
 		});
-		console.log(posit);
+
 		return posit + 1;
 	}
 
@@ -77,14 +27,14 @@ export default class History extends React.Component{
 
 	render(){
 
-		var list = this.state.history.map(function (history) {
+		var list = stops.map(function (stops) {
 			return(
-				<li key={history.id}>
+				<li key={stops.id}>
 					<div className="inf">
-						<span>{history.stopped}</span>
-						<span>{history.time}</span>										
+						<span>{stops.stopped}</span>
+						<span>{stops.time}</span>										
 					</div>
-					<h5>{history.car}</h5>
+					<h5>{stops.car}</h5>
 				</li>
 			)
 		});

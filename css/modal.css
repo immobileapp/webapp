@@ -1,0 +1,57 @@
+.modal{
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0,0,0,0.5);
+	z-index: 35;
+}
+.modal .container{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: white;
+	box-shadow: 0 0 30px rgba(0,0,0,0.35);
+}
+.modal .content{
+	padding: 7.5%;
+}
+
+.modal input{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 2.5vw 5vw;
+	border: none;
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	font-size: 4.5vw;
+	margin-bottom: 5vw;
+	outline: none;
+}
+
+.modal a{
+	padding: unset;
+}
+.button-round{
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translate(-50%, 50%);
+	width: 17vw;
+	height: 17vw;
+	border-radius: 20vw;
+	margin-top: 10vw;
+}
+.button-round::before{
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	background: url('../footage/confirm-icon.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 7vw;
+}

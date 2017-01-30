@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(258);
+	module.exports = __webpack_require__(259);
 
 
 /***/ },
@@ -86,7 +86,7 @@
 
 	var _history2 = _interopRequireDefault(_history);
 
-	var _modal = __webpack_require__(255);
+	var _modal = __webpack_require__(256);
 
 	var _modal2 = _interopRequireDefault(_modal);
 
@@ -29128,6 +29128,10 @@
 
 	var _header2 = _interopRequireDefault(_header);
 
+	var _stops = __webpack_require__(255);
+
+	var _stops2 = _interopRequireDefault(_stops);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29139,51 +29143,10 @@
 	var History = function (_React$Component) {
 		_inherits(History, _React$Component);
 
-		function History(state) {
+		function History() {
 			_classCallCheck(this, History);
 
-			var _this = _possibleConstructorReturn(this, (History.__proto__ || Object.getPrototypeOf(History)).call(this, state));
-
-			_this.state = {
-				history: [{
-					id: 0,
-					stopped: "1h 30min",
-					time: "3h atrás",
-					car: "Ford Ka",
-					active: 1
-				}, {
-					id: 1,
-					stopped: "1h 30min",
-					time: "3h atrás",
-					car: "Ford Ka",
-					active: 0
-				}, {
-					id: 2,
-					stopped: "1h 30min",
-					time: "3h atrás",
-					car: "Ford Ka",
-					active: 0
-				}, {
-					id: 3,
-					stopped: "1h 30min",
-					time: "3h atrás",
-					car: "Ford Ka",
-					active: 0
-				}, {
-					id: 4,
-					stopped: "1h 30min",
-					time: "3h atrás",
-					car: "Ford Ka",
-					active: 0
-				}, {
-					id: 5,
-					stopped: "1h 30min",
-					time: "3h atrás",
-					car: "Ford Ka",
-					active: 0
-				}]
-			};
-			return _this;
+			return _possibleConstructorReturn(this, (History.__proto__ || Object.getPrototypeOf(History)).apply(this, arguments));
 		}
 
 		_createClass(History, [{
@@ -29191,13 +29154,12 @@
 			value: function getActive() {
 				var posit;
 
-				this.state.history.map(function (history) {
-					if (history.active == 1) {
-						console.log('osdgjs');
-						posit = history.id;
+				_stops2.default.map(function (stops) {
+					if (stops.active == 1) {
+						posit = stops.id;
 					}
 				});
-				console.log(posit);
+
 				return posit + 1;
 			}
 		}, {
@@ -29212,28 +29174,28 @@
 			key: 'render',
 			value: function render() {
 
-				var list = this.state.history.map(function (history) {
+				var list = _stops2.default.map(function (stops) {
 					return _react2.default.createElement(
 						'li',
-						{ key: history.id },
+						{ key: stops.id },
 						_react2.default.createElement(
 							'div',
 							{ className: 'inf' },
 							_react2.default.createElement(
 								'span',
 								null,
-								history.stopped
+								stops.stopped
 							),
 							_react2.default.createElement(
 								'span',
 								null,
-								history.time
+								stops.time
 							)
 						),
 						_react2.default.createElement(
 							'h5',
 							null,
-							history.car
+							stops.car
 						)
 					);
 				});
@@ -39488,6 +39450,55 @@
 
 /***/ },
 /* 255 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	var stops = [{
+		id: 0,
+		stopped: "1h 30min",
+		time: "3h atrás",
+		car: "Ford Ka",
+		active: 1
+	}, {
+		id: 1,
+		stopped: "1h 30min",
+		time: "3h atrás",
+		car: "Ford Ka",
+		active: 0
+	}, {
+		id: 2,
+		stopped: "1h 30min",
+		time: "3h atrás",
+		car: "Ford Ka",
+		active: 0
+	}, {
+		id: 3,
+		stopped: "1h 30min",
+		time: "3h atrás",
+		car: "Ford Ka",
+		active: 0
+	}, {
+		id: 4,
+		stopped: "1h 30min",
+		time: "3h atrás",
+		car: "Ford Ka",
+		active: 0
+	}, {
+		id: 5,
+		stopped: "1h 30min",
+		time: "3h atrás",
+		car: "Ford Ka",
+		active: 0
+	}];
+
+	exports.default = stops;
+
+/***/ },
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39502,11 +39513,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _newCar = __webpack_require__(256);
+	var _newCar = __webpack_require__(257);
 
 	var _newCar2 = _interopRequireDefault(_newCar);
 
-	var _modalTypes = __webpack_require__(260);
+	var _modalTypes = __webpack_require__(258);
 
 	var _modalTypes2 = _interopRequireDefault(_modalTypes);
 
@@ -39529,17 +39540,6 @@
 
 		_createClass(Modal, [{
 			key: 'render',
-
-			// constructor(context, props){
-			// 	super(context, props);
-
-			// 	this.state = {
-			// 		components: {
-			// 			NewCar: NewCar
-			// 		}
-			// 	}
-			// }
-
 			value: function render() {
 
 				var Component = _modalTypes2.default[this.props.params.name];
@@ -39562,7 +39562,7 @@
 	exports.default = Modal;
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39576,6 +39576,16 @@
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(179);
+
+	var _header = __webpack_require__(251);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	var _cars = __webpack_require__(252);
+
+	var _cars2 = _interopRequireDefault(_cars);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39591,19 +39601,39 @@
 		function NewCar() {
 			_classCallCheck(this, NewCar);
 
-			return _possibleConstructorReturn(this, (NewCar.__proto__ || Object.getPrototypeOf(NewCar)).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, (NewCar.__proto__ || Object.getPrototypeOf(NewCar)).call(this));
+
+			_this.saveNewCar = _this.saveNewCar.bind(_this);
+			return _this;
 		}
 
 		_createClass(NewCar, [{
+			key: 'saveNewCar',
+			value: function saveNewCar() {
+				var name = document.getElementById('name').value;
+				var plaque = document.getElementById('plaque').value;
+
+				var newCar = {
+					id: _cars2.default.length + 1,
+					name: name,
+					plaque: plaque
+				};
+
+				_cars2.default.push(newCar);
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
 					null,
+					_react2.default.createElement(_header2.default, { page: 'Novo Ve\xEDculo' }),
 					_react2.default.createElement(
-						'span',
-						null,
-						'Conteudo novo Carro modal'
+						'div',
+						{ className: 'content' },
+						_react2.default.createElement('input', { id: 'name', name: 'name', type: 'text', placeholder: 'Nome' }),
+						_react2.default.createElement('input', { id: 'plaque', name: 'plaque', type: 'text', placeholder: 'Placa' }),
+						_react2.default.createElement(_reactRouter.Link, { className: 'button-round red', to: '/myCars', onClick: this.saveNewCar })
 					)
 				);
 			}
@@ -39615,8 +39645,29 @@
 	exports.default = NewCar;
 
 /***/ },
-/* 257 */,
 /* 258 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _newCar = __webpack_require__(257);
+
+	var _newCar2 = _interopRequireDefault(_newCar);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var components = {
+		NewCar: _newCar2.default
+	};
+
+	exports.default = components;
+
+/***/ },
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39625,7 +39676,7 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _hammer = __webpack_require__(259);
+	var _hammer = __webpack_require__(260);
 
 	var _hammer2 = _interopRequireDefault(_hammer);
 
@@ -39671,7 +39722,7 @@
 	}
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -42307,28 +42358,6 @@
 	        window[exportName] = Hammer;
 	    }
 	})(window, document, 'Hammer');
-
-/***/ },
-/* 260 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _newCar = __webpack_require__(256);
-
-	var _newCar2 = _interopRequireDefault(_newCar);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var components = {
-		NewCar: _newCar2.default
-	};
-
-	exports.default = components;
 
 /***/ }
 /******/ ]);
